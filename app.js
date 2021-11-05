@@ -1,10 +1,12 @@
 const question = document.getElementById('question')
-let options = document.getElementsByClassName('options')
+let options = document.querySelectorAll('.option')
+let answers = document.querySelector('.answers')
 
 let questionCounter = 0;
 let availableQuestions = []
 let score = 0;
 
+console.log(options)
 
 const questions = [
     {
@@ -106,10 +108,7 @@ const questions = [
     },
   ];
 
-  window.onload = function () {
-    
-  };
-
+  
 
     const startGame = function(){
         
@@ -118,7 +117,11 @@ const questions = [
         availableQuestions = [...questions];
         console.log(availableQuestions)
         getNewQuestion();
+        answers.removeChild(newP,newP2,newP3,newP4)
     }
+window.onload = function () {
+    
+  };
 
     const getNewQuestion = function(){
 
@@ -129,10 +132,24 @@ const questions = [
 
         let correctAnswer = currentQuestion.correct_answer
         let incorrectAnswers = currentQuestion.incorrect_answers
-        
-        for(let i=0; i< options.length; i++){
-        //options.innerText = currentQuestion [correctAnswer + incorrectAnswers]
-        console.log(options) }
+        let newP = document.createElement('p')
+        let newP2 = document.createElement('p')
+        let newP3 = document.createElement('p')
+        let newP4 = document.createElement('p')
+        newP.innerText = correctAnswer
+        newP2.innerText = incorrectAnswers[2]
+        newP3.innerText = incorrectAnswers[1]
+        newP4.innerText = incorrectAnswers[0]
+        answers.appendChild(newP)
+        answers.appendChild(newP2)
+        answers.appendChild(newP3)
+        answers.appendChild(newP4)
+
+                     
+        //for(let i=0; i< options.length; i++){
+        //options[i].innerText = currentQuestion = correctAnswer + incorrectAnswers
+            
+        // }
         
     }
 
