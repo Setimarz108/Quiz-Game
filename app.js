@@ -108,7 +108,6 @@ const questions = [
     },
   ];
 
-  
 
     const startGame = function(){
         
@@ -117,7 +116,7 @@ const questions = [
         availableQuestions = [...questions];
         console.log(availableQuestions)
         getNewQuestion();
-        answers.removeChild(newP,newP2,newP3,newP4)
+      
     }
 window.onload = function () {
     
@@ -145,13 +144,21 @@ window.onload = function () {
         answers.appendChild(newP3)
         answers.appendChild(newP4)
 
-                     
+                          
         //for(let i=0; i< options.length; i++){
         //options[i].innerText = currentQuestion = correctAnswer + incorrectAnswers
             
         // }
         
     }
+
+    function removeAllChildNodes() {
+      while (answers.firstChild) {
+          answers.removeChild(answers.firstChild);
+      }
+
+      return question.innerText = 'Next Question'
+  }
 
 
 
